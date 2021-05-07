@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <title>Maria Ulf4h @ Github.io</title>
+
+        <link type="text/css" rel="stylesheet" href="assets/javascripts/libs/bootstrap/dist/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="assets/javascripts/libs/angular-ui-layout/src/ui-layout.css"/>
+        <link type="text/css" rel="stylesheet" href="assets/javascripts/libs/cytoscape-panzoom/cytoscape.js-panzoom.css">
+        <link type="text/css" rel="stylesheet" href="assets/stylesheets/style.css">
+
+        <link type="text/css" rel="stylesheet" href="assets/javascripts/libs/qtip2/basic/jquery.qtip.min.css">
+        <link type="text/css" rel="stylesheet" href="assets/javascripts/libs/angular-material/angular-material.min.css">
+
+        <script data-main="assets/javascripts/main.js" type="text/javascript" src="assets/javascripts/libs/requirejs/require.js"></script>
+    </head>
+
+    <body ng-controller="AppController as app" ngsf-fullscreen>
+      <md-sidenav
+        class="md-sidenav-left md-whiteframe-z2"
+        md-component-id="left"
+        md-disable-backdrop=""
+        style="min-height: 100%; z-index: 1001;"
+        >
+        <div ng-controller="MainnavController">
+             <md-toolbar class="md-theme-indigo" style="background-color: #1f3142 !important;">
+               <div class="md-toolbar-tools" style="visibility: 'hidden'" ng-hide="!progressBarIsInactive" ng-show="progressBarIsInactive">
+                 <label class="alv_label">mariaulf4h.github.io</label>
+               </div>
+             </md-toolbar>
+           <md-content style="text-align: justify; margin-top: 15px;" ng-hide="!progressBarIsInactive" ng-show="progressBarIsInactive">
+              <img src="assets/images/Maria_Photo.jpeg" alt="Avatar" class="avatar">
+             <div class="md-toolbar-tools">
+               <label class="alv_label">Maria Ulfah</label>
+             </div>
+             <md-subheader class="md-no-sticky">
+                <p style="font-size: 14px; line-height: 1.2em">Data Science Aspirant in Machine Learning, Big Data, Cloud, and Interactive Data Visualization. Years experienced in data-driven projects with a demonstrated history of working in the research industry, government institution, and project management. Skilled in data analytics with R, Python & SQL.
+                </p>
+                <!-- <p style="font-size: 16px; line-height: 1.2em">
+                   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p> -->
+             </md-subheader>
+             <!-- <md-list-item class="main-subheader" ng-click="toggleStats()">
+                <span flex>Statistics</span>
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              </md-list-item> -->
+             <md-list-item class="main-subheader" ng-href="https://mariaulf4h.github.io/assets/docs/maria_ulfah_resume.pdf" target="_blank" flex>
+                <span ng-href="https://mariaulf4h.github.io/assets/docs/maria_ulfah_resume.pdf" target="_blank" flex>Resume</span>
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              </md-list-item>
+
+              <md-list-item class="main-subheader" ng-href="https://mariaulf4h.github.io/assets/docs/Maria's_Certificates.pdf" target="_blank" flex>
+                 <span ng-href="https://mariaulf4h.github.io/assets/docs/Maria's_Certificates.pdf" target="_blank" flex>Certificates</span>
+                 <i class="fa fa-chevron-right" aria-hidden="true"></i>
+               </md-list-item>
+
+               <md-list-item class="main-subheader" ng-href="https://github.com/mariaulf4h" target="_blank" flex>
+                  <span ng-href="https://github.com/mariaulf4h" target="_blank" flex>GitHub</span>
+                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </md-list-item>
+
+                <md-list-item class="main-subheader" ng-href="https://www.linkedin.com/in/mariaulfah//" target="_blank" flex>
+                   <span ng-href="https://www.linkedin.com/in/mariaulfah/" target="_blank" flex>LinkedIn</span>
+                   <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                 </md-list-item>
+
+                 <md-list-item class="main-subheader" ng-href="https://www.kaggle.com/mariaulfah" target="_blank" flex>
+                    <span ng-href="https://www.kaggle.com/mariaulfah" target="_blank" flex>Kaggle</span>
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                  </md-list-item>
+
+              <!-- <md-list-item class="main-subheader" ng-click="toggleManual()">
+                 <span flex>User manual:</span>
+                 <i class="fa fa-chevron-right" aria-hidden="true"></i>
+               </md-list-item> -->
+           </md-content>
+           <!-- <md-toolbar class="md-scroll-shrink">
+            <a ng-href="/login" target="_self" layout="row" layout-align="center center" flex style="cursor: pointer;">
+              Logout
+            </a>
+          </md-toolbar> -->
+         </div>
+       </div>
+      </md-sidenav>
+
+      <div id="wrapper" layout="column" ng-cloak layout-fill>
+        <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right" style="z-index: 1001">
+          <div ng-controller="SidenavController">
+             <form>
+               <md-toolbar class="md-theme-light">
+                 <h1 class="md-toolbar-tools" style="word-break: break-word; cursor: default;" >
+                   {{ selectedEntity.data().name }}
+                   <!-- <md-input-container class="example-full-width" ng-if="selectedEntity !== 'createCompound'">
+                     <input
+                      style="color: white"
+                      ng-model="selectedEntity.data().name"
+                      aria-label="Close"
+                     >
+                   </md-input-container> -->
+                   <!-- <input value="{{selectedEntity.data('name')}}" /> -->
+                   <div ng-if="selectedEntity === 'createCompound'">
+                    Create Compound Node:
+                  </div>
+                  </h1>
+               </md-toolbar>
+               <md-content layout-padding>
+                  <img
+                    ng-show="selectedEntity.data('image')"
+                    ng-src="{{selectedEntity.data('image') === undefined ? '' : selectedEntity.data('image')}}"
+                    style="width:200px;"
+                  />
+                   <md-input-container
+                    ng-if="selectedEntity !== 'createCompound'"
+                   >
+                     <label for="testInput">Label</label>
+                     <textarea
+                        ng-model="selectedEntity.data().name"
+                        md-autofocus
+                        ng-model-options="{ getterSetter: true, updateOn: 'default' }"
+                      >
+                     </textarea>
+                   </md-input-container>
+                   <md-input-container
+                    ng-if="selectedEntity === 'createCompound'"
+                   >
+                     <label for="newCompound">Name</label>
+                     <input
+                        id="newCompound"
+                        ng-if="selectedEntity === 'createCompound'"
+                      >
+                    </input>
+                   </md-input-container>
+                 <!-- <div> -->
+                 <md-button ng-click="update()" class="md-primary" ng-if="selectedEntity !== 'createCompound'">
+                   Update
+                 </md-button>
+                  <!-- </div> -->
+                 <md-button ng-click="createCompound()" class="md-primary" ng-if="selectedEntity === 'createCompound'">
+                   Create
+                 </md-button>
+                 <md-input-container
+                  ng-if="selectedEntity !== 'createCompound' && selectedEntity.data().desc"
+                  style="width: 100%"
+                 >
+                   <label for="testInput">Description</label>
+                   <textarea
+                      ng-model="selectedEntity.data().desc"
+                      md-autofocus
+                      ng-model-options="{ getterSetter: true, updateOn: 'default' }"
+                    >
+                   </textarea>
+                 </md-input-container>
+                 <div ng-if="selectedEntity !== 'createCompound' && selectedEntity.data().url">
+                  <span><b>URL: </b></span><a href="{{ selectedEntity.data().url }}" style="word-break: break-all;" target="_blank">{{selectedEntity.data().url}}</a>
+                 </div>
+                </br>
+                 <md-button ng-click="delete()" class="md-warn" ng-if="selectedEntity !== 'createCompound'">
+                   Delete
+                 </md-button>
+               </md-content>
+             </form>
+             <md-toolbar class="md-scroll-shrink">
+              <div layout="row" layout-align="center center" class="overflow-y: auto" ng-click="close()" flex>
+                Close
+              </div>
+            </md-toolbar>
+           </div>
+        </md-sidenav>
+
+        <span class="graphs" ng-controller="GraphController">
+          <div class="progressBar" ng-hide="progressBarIsInactive">
+            <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+          </div>
+            <main id="center-box-entity" resizable r-directions="['right']" style="padding-left:320px;">
+              <div id="content" class="container">
+                <div style="height: 100%">
+
+                  <md-content flex layout-padding>
+                    <iframe ng-src="https://edakingcounty.herokuapp.com/" style="width: 100%;height: 1000px;"> <!--content--> </iframe>
+                    <div layout="column" layout-align="top center" style="height: 80px;">
+                      <p>
+                      Built with Dash and Plotly and Hosted in Heroku.
+                      </p>
+                      <p>
+              
+                    <div flex></div>
+              
+                  </md-content>
+                </div>
+              </div>
+            </main>
+        </span>
+      </div>
+
+      <!-- <div ng-controller="CirclenavController" ng-click="hasManual()">
+        <ul id="navs">
+          <li>
+            <a href="" ng-click="centerGraph()">
+              <md-tooltip md-direction="left">Fit Layout</md-tooltip>
+              <i id="circle-fit" class="fa fa-expand fa-2x" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="" ng-click="layoutReset()">
+              <md-tooltip md-direction="left">Fix Layout</md-tooltip>
+              <i id="circle-reset" class="fa fa-retweet fa-2x" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="" ng-click="addCompound()">
+              <md-tooltip md-direction="top">Create Compound</md-tooltip>
+              <i id="circle-parent" class="fa fa-object-group fa-2x" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="" ng-click="toggleSidenav()">
+              <md-tooltip md-direction="top">Open Mainnav</md-tooltip>
+              <i id="circle-burger" style="color: yellow;" class="fa fa-bars fa-2x" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+      </div> -->
+
+
+    </body>
+</html>

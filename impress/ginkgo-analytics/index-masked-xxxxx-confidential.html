@@ -1,0 +1,709 @@
+
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Data-Case: AI Solution for Helpdesk Inc. - Ginkgo Analytics</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+		<script src="https://d3js.org/d3.v3.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.0-beta.28/vega.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/2.0.0-alpha.9/vega-lite.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/3.0.0-beta.10/vega-embed.js"></script>
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<img width="800" src="img/intro_1.png">
+					<aside class="notes">
+						 <a style="color:red">Guten Tag</a> Hallo zusammen,
+						<br/> <br/>
+						Zunächst möchte ich mich für die Einladung zur Präsentation bedanken. Die heutige Präsentation trägt den Titel eines Data Case: AI Solution for Help Desk Inc. Die Präsentation findet auf englischer und auf deutscher Sprache statt / gehalten.
+					</aside>
+				</section>
+
+				<section>
+					<IFRAME WIDTH=800 HEIGHT=600 FRAMEBORDER=0 SRC="https://mariaulf4h.github.io"></IFRAME>
+					<aside class="notes">
+						Und ich möchte mich kurz vorstellen. Mein Name ist maria Rindra Fazrie, ich habe gerade mein Masterstudium abgeschlossen und ich habe die Erfahrung gemacht, sowohl AI-und Full-stack Apps zu entwickeln, und ein Enthusiast von Data Science.
+						<br/> <br/>
+						Das ist meine website. ihr kann gucken, meine tech stack, erfahrungen, und so weiter.
+						<br/> <br/>
+						Ich habe ein starkes Interesse an Data Science/Machine Learning zum Produktion, NLP, und DatenVisualisierung.
+					</aside>
+				</section>
+
+				<section>
+					<img width="800" src="img/Selection_754.png">
+					<aside class="notes">
+						Geschäftsfall
+						<br/> <br/>
+						Grundsätzlich müssen wir die C-Suite von Helpdesk Inc. überzeugen, um Einblicke aus unstrukturierten Daten zu erhalten und die "State-of-the-Art-Deep-Learning" -Modelle zu implementieren.	<br/> <br/>
+						Und Ja, das ist möglich, um aus diesen unstrukturierten Textdaten "Deep Learning" zu trainieren, also wir können um die Produkt- oder Problemkategorie vorherzusagen/ prognosen. Und dann wenn eine complaints rechzeitig aufgelöst/entschlossen wird und die ‘consumer’/Konsument die Entscheidung anficht/disputieren. Mit Deep Learning, wir können diese Problem/Prozess automatisieren.
+						<br/> <br/>
+						---------------------------------------------------------------------------
+						<br/> <br/>
+
+						Basically, we need to convince the C-suite of Helpdesk Inc. to get the insight from unstructured data and implement the 'state-of-the-art deep learning' models.
+
+						And Yes, that is possible to train "deep-learning" from this unstructured text data to predict Product or Issue category. And then if a complaint is resolved in a timely manner and if the consumer will dispute the decision.
+					</aside>
+				</section>
+
+				<section>
+					<img width="800" src="img/Selection_780.png">
+					<aside class="notes">
+						Bevor wir weiter gehen und die Implementierung besprechen. Ich möchte Ihnen die CRISP-DM-Methode zeigen. CRISP-DM stands for 'Cross-industry-standard-for-data-mining'.
+							<br/> <br/>
+						Es gibt viele Ansätze/Methodik im Data Science-Prozess. Aber sie sind jedoch dieser CRISP-DM-Methode ziemlich ähnlich/fast gleich.
+						<br/> <br/>
+						Es beginnt mit … danach, weiter, endlich..
+							<br/> <br/>
+							Und wir wissen, dass dieser Data Science-Prozess iterativ ist. Andrew Ng sagt dass auch. ML is ein iterative prozess und Don’t expect it to work first time. Erwarten / glauben wir nicht, dass es das erste Mal funktioniert.
+							<br/> <br/>
+							Laut/ according Andrew ng, es gibt 3 Hauptprozess in ML.
+							1. (Idea → Code → Experiment) → Idea, zum, ….
+							<br/> <br/>
+							Okay, fangen wir mit Business Understanding.
+					</aside>
+				</section>
+
+				<section>
+					<img width="800" src="img/Selection_756.png">
+					<aside class="notes">
+						Dies ist der Beginn / der Anfang des Prozesses. Business Understanding, Geschäftsverständnis, wir müssen über Task, Plan und Analytic Approach verstehen.
+							<br/> <br/>
+						Die Aufgabe / Task ist, C-suite des Helpdesk Inc. überzeugen um Deep learning zu implementieren als die als Lösung des Problems unstrukturierter Textdaten.
+						<br/> <br/>
+						Das Konzept Plan ist, um eine einfachere Ticketübergabe System zu ermöglichen / implementieren. Also, die konzument muss sich keiner komplizierten Form stellen.  Viele input füllen.
+							<br/> <br/>
+						Die Analytic Approach: ...
+					</aside>
+				</section>
+
+				<section>
+					<img width="800" src="img/Selection_757.png">
+					<aside class="notes">
+						Und jezt sprechen wir über Datenverständnis, wir gücken die shape des Daten ist fast 1 Million records/rows and 18 Features/variables.
+							<br/> <br/>
+						Es gibt, …., ..
+						<br/> <br/>
+						Und wählen wir ‘consumer complaints narrative’ feature aus als predictor variables/features und dann Product, timely response, und consumer disputeds werden ausgewählt als target variables.
+						<br/> <br/>
+						Nachdem Datensammlung, haben wir eine wichtige Sache zu tun, nämlich EDA.
+					</aside>
+				</section>
+
+				<section>
+					<img width="800" src="img/Selection_758.png">
+					<aside class="notes">
+						EDA …. John Tukey… Es bedeutet, EDA ist wichtig, um das Datenverständnis zu beginnen. Wir können target variables plotten mit graphical EDA. In diesem Fall benutze Ich seaborn packages.
+							<br/> <br/>
+						Wir können sehen, dass es einige Majoritätsklassen und Minderheitenklassen gibt. Mortgage class ist fast …  in gesamt.
+						<br/> <br/>
+						Am Anfang habe ich das gesamte / Alle Label benutzt. Aber sie haben nicht gut funktioniert.  Sie werden oft falsch klassifiziert. also habe ich mich entschlossen, entschieden, einige von labeln loszuwerden.
+					</aside>
+				</section>
+
+				<section>
+					<img width="800" src="img/Selection_781.png">
+					<aside class="notes">
+						Da (Because) wir die NLP-Aufgabe lösen möchten und werden, verwenden wir den NLP-Prozess Flow.
+						<br/> <br/>
+						Also, zwischen Data Preparation und Modelling in CRISP-DM. Es liegt NLP Process Flow, die sind es beginnt mit Datensammlung, ...
+						<br>
+						........
+						<br/> <br/>
+						Es könnte RNN, LSTM, CNN, ... sein
+						<br/> <br/>
+						Alle ML Algorithmen, die sich auf die NLP-Task beziehen, hat relation mit NLP Aufgabe.
+					</aside>
+				</section>
+
+				<section>
+					<section>
+						<img width="800" src="img/Selection_760.png">
+						<aside class="notes">
+							Datenvorverarbeitung.
+							<br/> <br/>
+							Bessere und sauberere Daten sind wichtiger als bessere Model. Dieser Satz habe ich oft in ML artikel gefunden und gesehen. Und Ich glaube das auch. Better Data for the win!
+							<br>
+							Datenvorverarbeitung beinhaltet den folgenden Schritt:
+							<br/> <br/>
+							…. Entfernen
+							<br/> <br/>
+							Lemmatization verwandelt worter zum Grund/Basicform und es dauert. Auf der anderen Seite ist das Stemming sehr schnell.
+							<br/> <br/>
+							Und Warum benutzen wir stemming, converts words to lower case, etc. weil wir den Wortschatz/Vocab Size so klein wie möglich halten wollen.
+						</aside>
+					</section>
+
+					<section>
+						<img width="800" src="img/Selection_761.png">
+						<aside class="notes">
+							Word Cloud ist wichtig, um einen Blick auf die Narrative zu gucken. welche worte sind die meistens, mehrheit.
+							<br/> <br/>
+							Wir müssen sicherstellen, dass die Wörter unseren Erwartungen entsprechen. According to what we expect.
+							<br>
+							Ich kann euch ein beispiel geben. Bevor verwende Ich Word Cloud, Ich dachte, dass die Datenreinigung gut funktioniert. Aber wenn ich es benutze und die text visualisieren. The majority texts are XXXX und XXXX. Verstehsen sie?
+							<br/> <br/>
+							Und dann Ich weiß was ist die problem.
+						</aside>
+					</section>
+
+					<section>
+						<img width="800" src="img/Selection_762.png">
+						<aside class="notes">
+							Das ist das Ergebnis der Datenbereinigung. Ihr kann gucken.
+							<br/> <br/>
+							Es gibt keine ...
+						</aside>
+					</section>
+
+					<section>
+						<img width="800" src="img/Selection_763.png">
+						<aside class="notes">
+							wie wir schon besprochen haben, in Datenvorverarbeitung es gibt Schritte: Label Selection, NA values entfernen. und so weiter.
+							<br/> <br/>
+							Also das ist die gewählte label, gewählte classes. Warum wähle ich diese labeln aus? Es gibt eine geschichte, eine Historie. Dafür gibt es einen Grund.
+							<br>
+							Ich habe mir die Confusion Matrix angesehen. Dass diese Classes/Katgories besser accuracy haben. Ich entferne manche ambiguos/vieldeutig kategorie wie ..., ...
+							<br/> <br/>
+							It’s hard to classify, even we as a human. Und Ich entferne auch the minority classes, weil sie oft falsch klassifiziert werden. Many are misclassified.
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<img width="800" src="img/Selection_764.png">
+						<aside class="notes">
+							Ich habe eine kurze Intermezzo bevor wir über deep learning reden. Das is die confusion matrix mit classification report. Where I can find which classes are classified correctly, richtig klassifiziert, und welche Klasse ist falsch klassifiziert.
+							<br/> <br/>
+							Wir können sehen, dass die majorität labeln wie ‘Credit reporting’, ‘Debt Collection’, und ‘Mortgage’ immer eine bessere accuracy haben und Meisten sind richtig klassifiziert.
+						</aside>
+					</section>
+
+					<section>
+						<img width="800" src="img/Selection_765.png">
+						<aside class="notes">
+							Hier ist noch Intermezzo, Dealing with imbalanced classes.
+							<br/> <br/>
+							Am Anfang habe ich TfidfVectorizer verwendet, also ich kann unigrams, bigrams, oder n-grams in jedes Narrative text finden. So, I want in each categories/class has their own unique and strong n-grams.
+							<br>
+							Es scheint gut zu funktionieren. Aber, leider funktioniert dieser Vectorizer nicht mit großen Datenmengen. Ich habe immer MemoryError bekommen. Es funktioniert nur mit dataset circa 50k rows.
+							<br/> <br/>
+							Und verwende ich auch diese vectorizer für die word embeddings im deep learning model. Aber ich hatte eine schlechte performance. Ich weiß es nicht. und Ich muss später noch mal gucken.
+						</aside>
+					</section>
+
+					<section>
+						<img width="800" src="img/Selection_766.png">
+						<aside class="notes">
+							Also versuche ich, diesen Vektorisierer für den Vanilla Machine Learning-Algorithmus zu verwenden. In diesem Fall verwende ich Multinominal NB und es scheint gut zu funktionieren.
+							<br/> <br/>
+							Es hat circa 86% accuracy und the majority class sind natürlich richtig klassifiziert.
+						</aside>
+					</section>
+
+				</section>
+
+					<section>
+						<img width="800" src="img/Selection_767.png">
+						<aside class="notes">
+							Jetzt sind wir im Feature Engineering. Es gibt einige Arten von Feature-Engineering.
+							<br/> <br/>
+							Es gibt ...
+							<br>
+							Wie wir schon gesehen haben, N-grams, TF-IDF.
+							<br/> <br/>
+							Was funktioniert am besten für Deep Learning? Das ist Word Embeddings.
+						</aside>
+					</section>
+
+					<section>
+						<img width="800" src="img/Selection_768.png">
+						<aside class="notes">
+							Nach dem Feature Engineering diskutieren wir nun über die Modellierung, NLP-Algorithmen. Welches ist das Beste für diesen Fall.
+							<br/> <br/>
+							Ich habe zwei Modelle ausprobiert, CNN und LSTM.
+							<br><br/>
+							Obwohl CNN für die Bildklassifizierung populär ist, funktioniert es auch für die Textklassifizierung. Und LSTM ist populär für many-to-many solutions wie sentiment anlyse, machine translation, chatbot, NER, und so weiter.
+							<br/> <br/>
+							Aber diese LSTM Model ist auch populär für die Trainingszeit. We can train it like forever. Es braucht wirklich Zeit, deshalb verwenden wir noch Convolutiional Layer to make um training schneller zu machen.
+							<br/> <br/>
+							Es gibt nachteile, disadvantages, und vorteile, disadvantages zwischen diesem model.
+						</aside>
+					</section>
+
+
+				<section>
+					<section>
+						<img width="800" src="img/Selection_769.png">
+						<aside class="notes">
+							Dies ist das Ergebnis von Training und Evaluation. Wir haben etwas die gleiche Performance zwischen CNN und LSTM.
+							<br/> <br/>
+							CNN hat…. LSTM hat … mit 5 Epoch.
+							<br/> </br>
+							Aber was den Unterschied macht, ist die Trainingszeit. LSTM dauert 10x länger zum Trainieren.
+						</aside>
+					</section>
+
+						<section>
+							<img width="800" src="img/Selection_770.png">
+							<aside class="notes">
+								Okay, das ist die Obervations.
+								<br/> <br/>
+								- beide haben ein ähnliches Ergebnis, ähnliches accuracy. Obwohl CNN kurze besser performance hat.
+								<br/><br/>
+								- CNN model outperformed LSTM in training time.  wie ich schon gesagt habe, training LSTM could be ...
+								<br/><br/>
+								- LSTM hat jedoch einen positiven und beständigen Trend. Auf der anderen Seite hat CNN einen negativen Trend und mehr overfitting trend für die nächste epoch.
+								<br/><br/>
+								- At the end, benutze Ich CNN.
+							</aside>
+						</section>
+
+						<section>
+							<img width="800" src="img/Selection_771.png">
+							<aside class="notes">
+								Das ist die Training Setup.
+								<br/> <br/>
+								Es gibt ..
+								<br/><br/>
+								- Regularization für overfitting verhindern
+								<br/><br/>
+								Am anfang benutze Ich kleine max_features. Ich denke, dass es nur circa 2000 worter gibt in Narrative und zwar es gibt 40k worter. Ändern der Max_ features, Es verbessert die Performance.
+								<br/><br/>
+								Viele Leute benutzen 64/128/256 als Hyperparameter nummer, vielleicht das ist die Best practice.
+								<br/><br/>
+								Und dann, wir können die Testing sehen.
+							</aside>
+						</section>
+
+					</section>
+
+					<section>
+						<img width="800" src="img/Selection_772.png">
+						<aside class="notes">
+							Und jetzt kommen wir zum Problem für ....
+							<br/> <br/>
+							Aus dem narrativen Text können wir die Einsicht der Daten extrahieren. Zum Beispiel können wir die Sentiment-Analyse des Textes extrahieren, ob er positiv oder negativ ist. Damit können wir vorhersagen / forecasting, ob der Kunde streiten/dispute wird oder nicht.
+							<br/><br/>
+							Was habe ich getan, war, die Final layer und Loss function ändern. Von … zu …
+							<br/><br/>
+							Und das ist das Trainingsergebnis, accuracy und loss plotten.
+						</aside>
+					</section>
+
+					<section>
+						<img width="800" src="img/Selection_773.png">
+						<aside class="notes">
+							und jetzt können wir unseren Klassifikator testen.
+							<br/> <br/>
+							Aus einer einzigen Narrative Text können wir Multiple targets vorhersagen. Predict multiple target.
+						</aside>
+					</section>
+
+					<section>
+						<img width="800" src="img/Selection_774.png">
+						<aside class="notes">
+							Nächster Schritt: Depolyment? Feedback?
+							<br/> <br/>
+							Wie wir besprochen haben, Data Science/Machine Learning prozess ist ein iterativ prozess. Wenn es eine Feedback gibt, Wir können unseren Algorithmus umgestalten/remodellen.
+							<br/><br/>
+							Wir müssen erneut herausfinden, was das Problem ist und welche Faktoren die die Performance verbessern können.
+						</aside>
+					</section>
+
+					<section>
+						<img width="800" src="img/Selection_779.png">
+						<aside class="notes">
+							Dies sind die Dinge, von denen Ich glaube, dass sie die Performance verbessern könnten.
+						</aside>
+					</section>
+
+					<section>
+						<img width="800" src="img/Selection_776.png">
+						<aside class="notes">
+							Fazit,
+							<br/>
+							Die schlussfolgerung
+						</aside>
+					</section>
+
+					<section>
+						<img width="800" src="img/Selection_777.png">
+						<aside class="notes">
+						Gibt es eine Frage?
+					</section>
+
+
+
+
+
+
+				<!-- <section data-transition="fade">
+					<h3>Presentation Agenda</h3>
+					<ul>
+						<li>New/s/leak Introduction</li>
+						<li>Technology Stack</li>
+						<li>Where we started</li>
+						<li>What we achieved</li>
+						<li>Project Timeline</li>
+						<li>Live demo</li>
+					</o>
+				</section>
+
+				<section data-transition="fade">
+					<section data-transition="fade">
+						<h3>Introduction</h3>
+						<img width="750" src="img/cropped-logo-draft.png" />
+					</section>
+					<section data-transition="fade">
+						<h3>New/s/leak Goal</h3>
+						<div style="font-size: 20px;">To provide a quick access to important entities (people, organizations, places, location) and their relationships, and how those things change over time.</div>
+						<h3>New/s/leak Extension Purpose</h3>
+						<ul style="font-size: 20px;">
+							<li>Enable adding new entities and keywords into the system.</li>
+							<li>Enable adding of new entity types.</li>
+							<li>Provide keyword graphs alongside the entity graph.</li>
+							<li>Enhance entity and keyword blacklisting.</li>
+							<li>Improve analyzability of connections between entities, keywords and tags.</li>
+						</ul>
+					</section>
+				</section>
+
+				<section data-transition="fade">
+					<h3>Tech Stack</h3>
+					<img width="633" src="img/tech_stack.png" />
+				</section>
+
+				<section>
+					<section data-transition="fade">
+						<h5>Where we started</h5>
+						<img width="750" src="img/newsleak.png" />
+					</section>
+					<section data-transition="fade">
+						<h5>Where we started</h5>
+						<img width="750" src="img/newsleak1.png" />
+					</section>
+				</section>
+
+				<section>
+					<section data-transition="fade">
+						<h5>What we achieved</h5>
+						<img width="750" src="img/newsleakV1.png" />
+					</section>
+					<section data-transition="fade">
+						<h5>What we achieved</h5>
+						<img width="750" src="img/newsleakV2.png" />
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Document Reading View</h3>
+						<ul>
+							<li>Entity Annotation</li>
+							<li>Entity Exclusion</li>
+							<li>Keyword Insertion</li>
+						</ul>
+					</section>
+					<section data-transition="fade">
+						<h3>Entity Annotation</h3>
+						<img width="633" src="img/doc.png" />
+					</section>
+					<section data-transition="fade">
+						<h3>Entity Annotation</h3>
+						<img width="633" src="img/doc1.png" />
+					</section>
+					<section data-transition="fade">
+						<h3>Entity Annotation</h3>
+						<img width="233" src="img/whitelist_modal1.png" />
+					</section>
+					<section data-transition="fade">
+						<h3>Entity Annotation</h3>
+						<img width="233" src="img/whitelist_modal2.png" />
+					</section>
+					<section data-transition="fade">
+						<h3>Entity Annotation</h3>
+						<img width="633" src="img/doc2.png" />
+					</section>
+					<section data-transition="fade">
+						<h3>Restriction</h3>
+						<img width="683" src="img/whitelist_alert1.png" />
+					</section>
+					<section data-transition="fade">
+						<h3>Entity Exclusion</h3>
+						<img width="540" src="img/blacklist1.png" />
+					</section>
+					<section data-transition="fade">
+						<h3>Entity Exclusion</h3>
+						<img width="520" src="img/blacklist2.png" />
+					</section>
+					<section data-transition="fade">
+						<h3>Keyword Insertion</h3>
+						<img width="633" src="img/doc1.png" />
+					</section>
+					<section data-transition="fade">
+						<h3>Keyword Insertion</h3>
+						<img width="233" src="img/keyword_modal1.png" />
+					</section>
+					<section data-transition="fade">
+						<h3>Keyword Insertion</h3>
+						<img width="433" src="img/keyword_insert1.png" />
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Keyword Recognition</h3>
+					</section>
+					<section data-transition="fade">
+						<h3>Keyword Graph</h3>
+						<img width="768" src="img/both-graphs.png" />
+					</section>
+					<section data-transition="fade">
+						<h3>Adding Tags</h3>
+						<img width="350" height="500" src="img/tags-after.png" />
+					</section>
+					<section data-transition="fade">
+						<h3>Highlight Entities</h3>
+						<img width="768" src="img/hover-keyword.png" />
+					</section>
+					<section data-transition="fade">
+						<h3>Highlight Keywords</h3>
+						<img width="768" src="img/hover-entity.png" />
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Further Development</h3>
+					</section>
+					<section>
+						<h4>Replace or improve keyword recognition algorithm</h4>
+					</section>
+					<section>
+						<h4>Replace database with elasticsearch</h4>
+					</section>
+					<section>
+						<h4>Improve reload time of keyword graph</h4>
+					</section>
+					<section>
+						<h4>Create delete function for entity type</h4>
+					</section>
+					<section>
+						<h4>Improve entity offset for whitelisting</h4>
+					</section>
+					<section>
+						<h4>Create option list of found entities that can be deleted</h4>
+						<img width="633" src="img/docFoundEntities1.png" />
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h3>Project Plan</h3>
+					</section>
+					<section data-transition="fade">
+						<h3>Initial Plan</h3>
+						<img width="2000" height="400" src="img/pp1.png" />
+					</section>
+					<section data-transition="fade">
+						<h3>Midterm Plan</h3>
+						<img width="2000" height="400" src="img/pp2.png" />
+					</section>
+				</section>
+
+				<section>
+					<h3>Thank you for your attention!</h3>
+					<h4>Questions?</h4>
+				</section> -->
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+		<!-- Everything below this point is only used for the reveal.js demo page -->
+
+		<!-- <a class="fork-reveal" style="display: none;" href="https://github.com/hakimel/reveal.js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork reveal.js on GitHub"></a>
+
+		<div class="share-reveal" style="display: none; position: absolute; bottom: 16px; left: 50%; margin-left: -139px; z-index: 20;">
+			<a class="share-reveal-editor" href="http://slides.com">Try the online editor</a>
+
+			<a class="share-reveal-facebook" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Flab.hakim.se%2Freveal-js">
+				<svg viewBox="-8 -8 48 48" width="20" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+					<path fill="#FFFFFF" d="M25.613-4.557c0,0-3.707,0-6.166,0c-3.662,0-7.732,1.535-7.732,6.835c0.019,1.845,0,3.613,0,5.603H7.481 v6.728h4.366v19.37h8.021V14.48h5.295l0.479-6.618h-5.913c0,0,0.016-2.946,0-3.8c0-2.093,2.184-1.974,2.312-1.974 c1.042,0,3.059,0.003,3.578,0v-6.646H25.613z"/>
+				</svg>
+			</a>
+
+			<a class="share-reveal-twitter" href="http://twitter.com/share?url=http%3A%2F%2Flab.hakim.se%2Freveal-js&text=reveal.js%20-%20The%20HTML%20presentation%20framework&via=revealjs&related=revealjs">
+				<svg viewbox="0 0 2000 1625.36" width="20" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+					<path d="m 1999.9999,192.4 c -73.58,32.64 -152.67,54.69 -235.66,64.61 84.7,-50.78 149.77,-131.19 180.41,-227.01 -79.29,47.03 -167.1,81.17 -260.57,99.57 C 1609.3399,49.82 1502.6999,0 1384.6799,0 c -226.6,0 -410.328,183.71 -410.328,410.31 0,32.16 3.628,63.48 10.625,93.51 -341.016,-17.11 -643.368,-180.47 -845.739,-428.72 -35.324,60.6 -55.5583,131.09 -55.5583,206.29 0,142.36 72.4373,267.95 182.5433,341.53 -67.262,-2.13 -130.535,-20.59 -185.8519,-51.32 -0.039,1.71 -0.039,3.42 -0.039,5.16 0,198.803 141.441,364.635 329.145,402.342 -34.426,9.375 -70.676,14.395 -108.098,14.395 -26.441,0 -52.145,-2.578 -77.203,-7.364 52.215,163.008 203.75,281.649 383.304,284.946 -140.429,110.062 -317.351,175.66 -509.5972,175.66 -33.1211,0 -65.7851,-1.949 -97.8828,-5.738 181.586,116.4176 397.27,184.359 628.988,184.359 754.732,0 1167.462,-625.238 1167.462,-1167.47 0,-17.79 -0.41,-35.48 -1.2,-53.08 80.1799,-57.86 149.7399,-130.12 204.7499,-212.41" style="fill:#ffffff"/>
+				</svg>
+			</a>
+		</div> -->
+
+		<style>
+			/* Social sharing */
+			.share-reveal a {
+				display: inline-block;
+				height: 34px;
+				line-height: 32px;
+				padding: 0 10px;
+				color: #fff;
+				font-family: Helvetica, sans-serif;
+				text-decoration: none;
+				font-weight: bold;
+				font-size: 12px;
+				vertical-align: top;
+				text-transform: uppercase;
+				box-sizing: border-box;
+			}
+
+			.share-reveal .share-reveal-editor {
+				line-height: 30px;
+			}
+
+			.share-reveal svg {
+				vertical-align: middle;
+			}
+
+			.share-reveal a + a {
+				margin-left: 10px;
+			}
+
+			.share-reveal-editor {
+				border: 2px solid #fff;
+			}
+
+			.share-reveal-twitter,
+			.share-reveal-follow {
+				background-color: #00aced;
+			}
+
+			.share-reveal-facebook {
+				background-color: #4B71B8;
+			}
+
+			/* Advertising */
+			#carbonads {
+				width: 370px;
+				min-height: 100px;
+				font-size: 18px;
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				padding: 10px;
+				margin: 40px auto 0 auto;
+				font-size: 16px;
+				z-index: 10;
+				text-align: left;
+			}
+
+			#carbonads .carbon-img img {
+				float: left;
+				margin: 0 10px 0 0;
+				border: 0;
+				box-shadow: none;
+			}
+
+			#carbonads .carbon-poweredby {
+				display: block;
+				margin-top: 10px;
+				color: #aaa;
+			}
+		</style>
+
+		<script>
+		var _gaq = [['_setAccount', 'UA-15240703-1'], ['_trackPageview']];
+		(function(d, t) {
+		var g = d.createElement(t),
+			s = d.getElementsByTagName(t)[0];
+		g.async = true;
+		g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g, s);
+		})(document, 'script');
+		</script>
+
+		<script>
+			[].slice.call( document.querySelectorAll( '.share-reveal-facebook, .share-reveal-twitter' ) ).forEach( function( element ) {
+				element.addEventListener( 'click', function( event ) {
+					event.preventDefault();
+					var width = 500, height = 300;
+					var winTop = window.screenY + (window.screen.height / 2) - (height / 2);
+					var winLeft = window.screenX + (window.screen.width / 2) - (width / 2);
+					window.open(this.href, 'shre', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + width + ',height=' + height);
+				} );
+			} );
+
+			if( !navigator.userAgent.match( /(iphone|android)/gi ) && !!document.querySelector ) {
+				document.querySelector( '.share-reveal' ).style.display = 'block';
+				document.querySelector( '.fork-reveal' ).style.display = 'block';
+			}
+		</script>
+
+	</body>
+</html>

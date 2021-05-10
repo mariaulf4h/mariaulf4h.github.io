@@ -87,7 +87,7 @@ define([
                    '<md-dialog aria-label="List dialog" style="z-index: 1002 !important;margin-left:320px;">' +
                    '  <md-dialog-content class="md-dialog-content">'+
                    '  <h2 class="md-title"><b> Welcome to mariaulf4h.github.io!</b></h2>' +
-                   '  <div class="md-dialog-content-body">In this website, you can observe my interactive <i>data visualization</i>, built with Plotly and Dash. </div>' +
+                   '  <div class="md-dialog-content-body">In this website, you can observe my interactive <i>data visualization</i>, built using Plotly and Dash. </div>' +
                    '  <div class="md-dialog-content-body">This Interactive Visualization App is hosted in Heroku and you need to wait for 1 or 2 minutes for Heroku to redeploy the Plotly and Dash visualization. </div>' +
                    ' </br>' +
                    '  <div class="md-dialog-content-body">If you get an Application Error, please reload the page.</div>' +
